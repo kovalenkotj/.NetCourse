@@ -4,6 +4,7 @@ using System.Text;
 
 namespace _3
 {
+    //static class A - mistakes: "'A.*any member of A*': cannot declare instance members in a static class"
     class A
     {
         private int field1;
