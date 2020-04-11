@@ -4,8 +4,8 @@ using System.Text;
 
 namespace _3
 {
-
-    public class A
+    // the example of partial class
+    public partial class A
     {
         private readonly int val = 5;
         public A()
@@ -13,14 +13,7 @@ namespace _3
             val = 1; // it's the final result, because we can change the value of a readonly field in the constructor
         }
 
-        // to have an access to the private field 'val'
-        public int Val 
-        { 
-            get
-            {
-                return val;
-            } 
-        }
+        
     }
 
     ////static class A - mistakes: "'A.*any member of A*': cannot declare instance members in a static class"
