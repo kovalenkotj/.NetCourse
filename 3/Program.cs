@@ -7,6 +7,7 @@ namespace _3
         static void Main(string[] args)
         {
             /* Task 2 - we can't create the instance of the class, if it's static */
+            /* Task 3 - the A constuctor is inaccessible when it's private */
             A a = new A();
 
             // private

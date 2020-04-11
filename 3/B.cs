@@ -4,7 +4,7 @@ using System.Text;
 
 namespace _3
 {
-    class B:A
+    class B:A // Task 3 - mistake, when the A constructor is private
     {
         public void Method()
         {

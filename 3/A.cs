@@ -7,6 +7,8 @@ namespace _3
     //static class A - mistakes: "'A.*any member of A*': cannot declare instance members in a static class"
     class A
     {
+        //private A() { } - mistakes, as we can't inherit A and create instances
+
         private int field1;
         protected int field2;
 
