@@ -10,6 +10,10 @@ namespace _3
             /* Task 3 - the A constuctor is inaccessible when it's private */
             A a = new A();
 
+            // Task 4 - checking the result of 'val'
+            Console.WriteLine(a.Val); // the result is 1
+            Console.ReadKey();
+
             // private
             //a.field1 = 0;
             //a.Prop1 = 0;
