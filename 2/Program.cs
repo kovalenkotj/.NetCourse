@@ -79,8 +79,8 @@ namespace _2
             int i = 32;
             char c = 'c';
 
-            Object boxed_i = (Object)i;
-            Object boxed_c = (Object)c;
+            Object boxed_i = i;
+            Object boxed_c = c;
             Console.WriteLine("Boxing is performed");
 
             int unboxed_i = (int)boxed_i;
