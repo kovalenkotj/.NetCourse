@@ -37,5 +37,17 @@ namespace _4
                 //rfield = value; // mistake, because we can't change the readonly field value outside the constructor
             }
         }
+
+        // Task 6 - "property with parameters"
+        public int this[int i]
+        {
+            get
+            {
+                return i;
+            }
+        }
+
+        // Task 7 - method with variable amount of parameters
+        public void Method1(params int[] i) { }
     }
 }
