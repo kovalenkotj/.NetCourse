@@ -19,5 +19,11 @@ namespace _4
         protected internal int Prop9 { get; internal set; }
         //public int Prop10 { public get; set; } //mistake, because accessor must be more restrictive than the property in general
 
+
+        // Tasks 3, 4
+        public static int sfield;
+        public readonly int rfield;
+        public void Method(ref int i) { }
+
     }
 }

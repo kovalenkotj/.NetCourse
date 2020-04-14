@@ -16,8 +16,7 @@ namespace _4
                     i++; //it executes, as we have no statements in 'case 1' block
                     break;
                 default: break;
-            } 
-
+            }
             // mistake, because it's no 'break' after the 'case 1' block
             //int i = 5;
             //switch (i)
@@ -29,6 +28,11 @@ namespace _4
             //    default: break;
             //}
 
+            // Task 3
+            A a = new A();
+            a.Method(ref A.sfield); //static field is passed succesfully
+            // Task 4
+            //a.Method(ref a.rfield); // mistake, because readonly values can be changed only in the constructor
         }
     }
 }
