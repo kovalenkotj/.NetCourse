@@ -22,8 +22,20 @@ namespace _4
 
         // Tasks 3, 4
         public static int sfield;
-        public readonly int rfield;
+        readonly int rfield;
         public void Method(ref int i) { }
 
+        // Task 5
+        public int Rfield
+        {
+            get
+            {
+                return rfield;
+            }
+            set
+            {
+                //rfield = value; // mistake, because we can't change the readonly field value outside the constructor
+            }
+        }
     }
 }

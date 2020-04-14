@@ -33,6 +33,10 @@ namespace _4
             a.Method(ref A.sfield); //static field is passed succesfully
             // Task 4
             //a.Method(ref a.rfield); // mistake, because readonly values can be changed only in the constructor
+
+            // Task 5
+            i = a.Rfield; // successfully
+            a.Rfield = 1; // the value of the readonly field isn't changed
         }
     }
 }
