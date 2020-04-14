@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace _4
 {
@@ -37,6 +38,39 @@ namespace _4
             // Task 5
             i = a.Rfield; // successfully
             a.Rfield = 1; // the value of the readonly field isn't changed
+
+
+            // Task 8 - speed test
+            Stopwatch sw1, sw2, sw3;
+            int ii;
+
+            sw1 = Stopwatch.StartNew();
+            if (i == 1) { ii = i; }
+            else if (i == 3) { ii = i; }
+            else { ii = i; }
+            sw1.Stop();
+
+            sw2 = Stopwatch.StartNew();
+            switch (i)
+            {
+                case 1:
+                    ii = i;
+                    break;
+                case 3:
+                    ii = i;
+                    break;
+                default:
+                    ii = i;
+                    break;
+            }
+            sw2.Stop();
+
+            sw3 = Stopwatch.StartNew();
+            ii = i == 1 ? i : (i == 3 ? i : i);
+            sw3.Stop();
+
+            Console.WriteLine("if/else - {0}, switch - {1}, ?: - {2}", sw1.ElapsedTicks, sw2.ElapsedTicks, sw3.ElapsedTicks);
+            Console.ReadKey();
         }
     }
 }
