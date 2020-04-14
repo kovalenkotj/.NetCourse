@@ -28,9 +28,14 @@ namespace _5
             Console.WriteLine(e);
         }
 
-        static void MethodBitFlag(ref BitFlags b)
+        static void MethodBitFlag(ref BitFlags b) // Task 2 method
         {
             Console.WriteLine(b);
+        }
+
+        static bool MethodBitFlag(BitFlags sequence, BitFlags flag) // Task 3
+        {
+            return (sequence & flag) == flag;
         }
     }
 }
