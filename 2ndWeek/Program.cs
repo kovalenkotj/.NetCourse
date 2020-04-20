@@ -17,6 +17,9 @@ namespace _2ndWeek
             List<int> collection1, collection2;
             CollectionClass.Modifying(out collection1, out collection2);
             /* 'List<>' allows to use both 'for' and 'foreach' for modifying */
+
+            // Task 7
+            Console.WriteLine(GenericsClass<int>.FillTime(5) + " " + ObjectsClass.FillTime(5));
         }
     }
 }
