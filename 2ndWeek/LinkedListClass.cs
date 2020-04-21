@@ -5,6 +5,19 @@ using System.Text;
 
 namespace _2ndWeek
 {
+    // Task 1
+    class ListActionsEventArgs<T> : EventArgs
+    {
+        public T Value { get; }
+        public string Message { get; }
+        public ListActionsEventArgs(string message, T value)
+        {
+            Value = value;
+            Message = message;
+        }
+
+    }
+
     // Task 6
     class LinkedListNode<T>
     {
@@ -18,6 +31,8 @@ namespace _2ndWeek
     }
     class LinkedListClass<T>: IEnumerable<LinkedListNode<T>>
     {
+        public delegate void ListActionsHandler(object sender, ListActionsEventArgs<T> e);
+        public event ListActionsHandler ActionMessage;
         public LinkedListNode<T> First { get; set; }
         public LinkedListNode<T> Last { get; set; }
         public int Count 
@@ -33,6 +48,11 @@ namespace _2ndWeek
             }
         }
 
+        public LinkedListClass()
+        {
+            ActionMessage += DisplayMessage;
+        }
+
         public void Add(T value)
         {
             LinkedListNode<T> node = new LinkedListNode<T>(value);
@@ -46,6 +66,8 @@ namespace _2ndWeek
                 node.Prev = Last;
             }
             Last = node;
+            ActionMessage.Invoke(this, 
+                new ListActionsEventArgs<T>($"The value {value.ToString()} was added to the {value.GetType().Name} list", value));
         }
 
         public void Remove(T value)
@@ -78,7 +100,14 @@ namespace _2ndWeek
                 {
                     First = current.Next;
                 }
+                ActionMessage.Invoke(this, 
+                    new ListActionsEventArgs<T>($"The value {value.ToString()} was removed from the {value.GetType().Name} list", value));
             }
+        }
+
+        public void DisplayMessage(object sender, ListActionsEventArgs<T> e)
+        {
+            Console.WriteLine(e.Message);
         }
 
         public IEnumerator<LinkedListNode<T>> GetEnumerator()
