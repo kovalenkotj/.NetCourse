@@ -20,6 +20,17 @@ namespace _2ndWeek
 
             // Task 7
             Console.WriteLine(GenericsClass<int>.FillTime(5) + " " + ObjectsClass.FillTime(5));
+
+            // Task 6
+            LinkedListClass<int> intList = new LinkedListClass<int>();
+            intList.Add(5);
+            intList.Add(8);
+            intList.Remove(5);
+
+            LinkedListClass<string> strList = new LinkedListClass<string>();
+            strList.Add("str1");
+            strList.Add("str2");
+            strList.Remove("str2");
         }
     }
 }
