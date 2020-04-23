@@ -31,6 +31,10 @@ namespace _2ndWeek
             strList.Add("str1");
             strList.Add("str2");
             strList.Remove("str2");
+
+            // Task 3
+            ClassForConvertion c = new ClassForConvertion(-5679999);
+            Console.Write(c.ToString());
         }
     }
 }

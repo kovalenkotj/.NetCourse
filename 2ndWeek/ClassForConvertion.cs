@@ -8,9 +8,24 @@ namespace _2ndWeek
     class ClassForConvertion : IConvertible
     {
         int value;
+
+        public ClassForConvertion(int value)
+        {
+            this.value = value;
+        }
+        public override string ToString()
+        {
+            Type type = Type.GetType("System.String");
+            return $"\nTo Boolean: {ToBoolean(null)}\nTo Byte: {ToByte(null)}\nTo Char: {ToChar(null)}\nTo DateTime: {ToDateTime(null)}\n" +
+                $"To Decimal: {ToDecimal(null)}\nTo Double: {ToDouble(null)}\nTo Int16: {ToInt16(null)}\nTo Int32: {ToInt32(null)}\n" +
+                $"To Int64: {ToInt64(null)}\nTo SByte: {ToSByte(null)}\nTo Single: {ToSingle(null)}\nTo String: {ToString(null)}\n" +
+                $"To String Type: {ToType(type, null)}\nTo UInt16: {ToUInt16(null)}\nTo UInt32: {ToUInt32(null)}\nTo UInt64: {ToUInt64(null)}";
+                
+        }
         public TypeCode GetTypeCode()
         {
             return TypeCode.Object;
+            
         }
 
         public bool ToBoolean(IFormatProvider provider)
@@ -24,17 +39,23 @@ namespace _2ndWeek
 
         public byte ToByte(IFormatProvider provider)
         {
-            return Convert.ToByte(value);
+            return (byte)value;
         }
 
         public char ToChar(IFormatProvider provider)
         {
-            return Convert.ToChar(value);
+            //return Convert.ToChar(value);
+            return (char)value;
         }
 
         public DateTime ToDateTime(IFormatProvider provider)
         {
-            return Convert.ToDateTime(value);
+            if (value < 0)
+            {
+                return DateTime.MinValue;
+            }
+            DateTime dt = new DateTime(value);
+            return dt;
         }
 
         public decimal ToDecimal(IFormatProvider provider)
@@ -49,7 +70,8 @@ namespace _2ndWeek
 
         public short ToInt16(IFormatProvider provider)
         {
-            return Convert.ToInt16(value);
+            //return Convert.ToInt16(value);
+            return (short)value;
         }
 
         public int ToInt32(IFormatProvider provider)
@@ -64,7 +86,7 @@ namespace _2ndWeek
 
         public sbyte ToSByte(IFormatProvider provider)
         {
-            return Convert.ToSByte(value);
+            return (sbyte)value;
         }
 
         public float ToSingle(IFormatProvider provider)
@@ -84,17 +106,20 @@ namespace _2ndWeek
 
         public ushort ToUInt16(IFormatProvider provider)
         {
-            return Convert.ToUInt16(value);
+            return (ushort)value;
+            //return Convert.ToUInt16(value);
         }
 
         public uint ToUInt32(IFormatProvider provider)
         {
-            return Convert.ToUInt32(value);
+            return (uint)value;
+            //return Convert.ToUInt32(value);
         }
 
         public ulong ToUInt64(IFormatProvider provider)
         {
-            return Convert.ToUInt64(value);
+            return (ulong)value;
+            //return Convert.ToUInt64(value);
         }
     }
 }
