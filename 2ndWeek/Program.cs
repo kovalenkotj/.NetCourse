@@ -35,6 +35,10 @@ namespace _2ndWeek
             // Task 3
             ClassForConvertion c = new ClassForConvertion(-5679999);
             Console.Write(c.ToString());
+            Console.WriteLine();
+
+            // Task 11
+            Console.Write(c.CustomAttributedMethods());
         }
     }
 }

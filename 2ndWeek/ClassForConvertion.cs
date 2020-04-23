@@ -1,9 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Reflection;
 
 namespace _2ndWeek
 {
+    // Task 11 custom attribute
+    class CustomAttribute : Attribute
+    {
+
+    }
+
     // Task 3
     class ClassForConvertion : IConvertible
     {
@@ -22,6 +29,29 @@ namespace _2ndWeek
                 $"To String Type: {ToType(type, null)}\nTo UInt16: {ToUInt16(null)}\nTo UInt32: {ToUInt32(null)}\nTo UInt64: {ToUInt64(null)}";
                 
         }
+
+        // also for Task 11
+        public string CustomAttributedMethods()
+        {
+            Type type = this.GetType();
+            MethodInfo[] methods = type.GetMethods();
+            string methodsStr = "\nMethods with CustomAttribute:";
+            CustomAttribute customAttribute = new CustomAttribute();
+            foreach(MethodInfo m in methods)
+            {
+                var mAttributes = m.GetCustomAttributes();
+                foreach(var a in mAttributes)
+                {
+                    if (a.GetType() == customAttribute.GetType())
+                    {
+                        methodsStr += "\n" + m.Name;
+                        break;
+                    }
+                }
+            }
+            return methodsStr;
+        }
+
         public TypeCode GetTypeCode()
         {
             return TypeCode.Object;
@@ -42,6 +72,7 @@ namespace _2ndWeek
             return (byte)value;
         }
 
+
         public char ToChar(IFormatProvider provider)
         {
             //return Convert.ToChar(value);
@@ -58,11 +89,13 @@ namespace _2ndWeek
             return dt;
         }
 
+        [Custom]
         public decimal ToDecimal(IFormatProvider provider)
         {
             return Convert.ToDecimal(value);
         }
 
+        [Custom]
         public double ToDouble(IFormatProvider provider)
         {
             return Convert.ToDouble(value);
@@ -74,11 +107,13 @@ namespace _2ndWeek
             return (short)value;
         }
 
+        [Custom]
         public int ToInt32(IFormatProvider provider)
         {
             return value;
         }
 
+        [Custom]
         public long ToInt64(IFormatProvider provider)
         {
             return Convert.ToInt64(value);
@@ -94,6 +129,7 @@ namespace _2ndWeek
             return Convert.ToSingle(value);
         }
 
+        [Custom]
         public string ToString(IFormatProvider provider)
         {
             return Convert.ToString(value);
