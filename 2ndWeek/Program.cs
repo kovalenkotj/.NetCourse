@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection;
+using System.Runtime.Remoting;
 
 namespace _2ndWeek
 {
@@ -39,6 +41,24 @@ namespace _2ndWeek
 
             // Task 11
             Console.Write(c.CustomAttributedMethods());
+            Console.WriteLine();
+
+
+            // Task 10
+            Type type = Type.GetType("_2ndWeek.ClassWithPrivateConstructor");
+            // It works
+            object obj = Activator.CreateInstance(type, true);
+            
+            // It doesn't work
+            AppDomain appDomain = AppDomain.CurrentDomain;
+            object obj2 = appDomain.CreateInstance("2ndWeek", "_2ndWeek.ClassWithPrivateConstructor");
+
+            // It also doesn't work
+            ConstructorInfo[] constructors = type.GetConstructors(BindingFlags.NonPublic);
+            foreach (ConstructorInfo ci in constructors)
+            {
+                ci.Invoke(null);
+            }
         }
     }
 }
