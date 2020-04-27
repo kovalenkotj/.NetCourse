@@ -90,6 +90,10 @@ namespace _2ndWeek
             object o1 = UniversalConstructorClass.CreateInstance("_2ndWeek.ClassForConvertion");
             object o2 = UniversalConstructorClass.CreateInstance("System.Reflection.BindingFlags");
             object o3 = UniversalConstructorClass.CreateInstance("_2ndWeek.ClassWithPrivateConstructor");
+
+            // Task 12
+            Console.WriteLine("\n\tTask12");
+            Console.WriteLine(DebugReleaseIdentifier.Identify());
         }
     }
 }
