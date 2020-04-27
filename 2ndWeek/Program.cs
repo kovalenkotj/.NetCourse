@@ -74,6 +74,13 @@ namespace _2ndWeek
                     m.Invoke(null, null);
                 }
             }
+            Console.WriteLine();
+
+            // Task 13
+            object o = UniversalConstructorClass.CreateInstance("_2ndWeek.StaticClass");
+            object o1 = UniversalConstructorClass.CreateInstance("_2ndWeek.ClassForConvertion");
+            object o2 = UniversalConstructorClass.CreateInstance("System.Reflection.BindingFlags");
+            object o3 = UniversalConstructorClass.CreateInstance("_2ndWeek.ClassWithPrivateConstructor");
         }
     }
 }
