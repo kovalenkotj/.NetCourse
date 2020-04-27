@@ -48,16 +48,31 @@ namespace _2ndWeek
             Type type = Type.GetType("_2ndWeek.ClassWithPrivateConstructor");
             // It works
             object obj = Activator.CreateInstance(type, true);
-            
-            // It doesn't work
-            AppDomain appDomain = AppDomain.CurrentDomain;
-            object obj2 = appDomain.CreateInstance("2ndWeek", "_2ndWeek.ClassWithPrivateConstructor");
 
-            // It also doesn't work
-            ConstructorInfo[] constructors = type.GetConstructors(BindingFlags.NonPublic);
-            foreach (ConstructorInfo ci in constructors)
+            //// It doesn't work
+            //AppDomain appDomain = AppDomain.CurrentDomain;
+            //object obj2 = appDomain.CreateInstance("2ndWeek", "_2ndWeek.ClassWithPrivateConstructor");
+
+            //// It also doesn't work
+            //ConstructorInfo[] constructors = type.GetConstructors(BindingFlags.NonPublic);
+            //foreach (ConstructorInfo ci in constructors)
+            //{
+            //    ci.Invoke(null);
+            //}
+
+            // Task 9
+            Type type1 = Type.GetType("_2ndWeek.StaticClass");
+            MethodInfo[] methods = type1.GetMethods(BindingFlags.NonPublic|BindingFlags.Static);
+            foreach(MethodInfo m in methods)
             {
-                ci.Invoke(null);
+                if (m.IsGenericMethod)
+                {
+                    m.MakeGenericMethod(Type.GetType("System.Int32")).Invoke(null, null);
+                }
+                else
+                {
+                    m.Invoke(null, null);
+                }
             }
         }
     }
