@@ -60,12 +60,12 @@ namespace _2ndWeek
             //AppDomain appDomain = AppDomain.CurrentDomain;
             //object obj2 = appDomain.CreateInstance("2ndWeek", "_2ndWeek.ClassWithPrivateConstructor");
 
-            //// It also doesn't work
-            //ConstructorInfo[] constructors = type.GetConstructors(BindingFlags.NonPublic);
-            //foreach (ConstructorInfo ci in constructors)
-            //{
-            //    ci.Invoke(null);
-            //}
+            // It already works))
+            ConstructorInfo[] constructors = type.GetConstructors(BindingFlags.NonPublic|BindingFlags.Instance);
+            foreach (ConstructorInfo ci in constructors)
+            {
+                ci.Invoke(null);
+            }
 
             // Task 9
             Console.WriteLine("\n\tTask 9");

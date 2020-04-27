@@ -9,7 +9,7 @@ namespace _2ndWeek
     {
         private ClassWithPrivateConstructor()
         {
-            Console.WriteLine("\nThe instance is created");
+            Console.WriteLine("The instance is created");
         }
     }
 }
