@@ -6,4 +6,8 @@
     <RootNamespace>_2ndWeek</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="SoapFormatter" Version="1.0.11" />
+  </ItemGroup>
+
 </Project>

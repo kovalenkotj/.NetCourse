@@ -19,6 +19,7 @@ namespace _2ndWeek
     }
 
     // Task 6
+    [Serializable]
     class LinkedListNode<T>
     {
         public LinkedListNode<T> Prev { get; set; }
@@ -29,9 +30,11 @@ namespace _2ndWeek
             Value = value;
         }
     }
+    [Serializable]
     class LinkedListClass<T>: IEnumerable<LinkedListNode<T>>
     {
         public delegate void ListActionsHandler(object sender, ListActionsEventArgs<T> e);
+        [field: NonSerialized]
         public event ListActionsHandler ActionMessage;
         public LinkedListNode<T> First { get; set; }
         public LinkedListNode<T> Last { get; set; }

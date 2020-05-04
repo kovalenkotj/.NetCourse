@@ -9,7 +9,39 @@ namespace _2ndWeek
     {
         static void Main(string[] args)
         {
-            MyExceptionThrowing();
+            //MyExceptionThrowing();
+            BinarySoapSerializationDemonstration();
+        }
+
+        /* Task 5, Week 3:
+         "Using the last custom class you created as part of your job, modify it so that it can be serialized. 
+         Then write an application to serialize and deserialize it using BinaryFormatter. 
+         Examine the serialized data. Then modify the application to use SoapFormatter. Examine the serialized data"*/
+        public static void BinarySoapSerializationDemonstration()
+        {
+            LinkedListClass<string> list = new LinkedListClass<string>();
+            list.Add("str1");
+            list.Add("str2");
+            LinkedListClass<string> list1;
+            BinarySerializationActions(list, out list1);
+            SoapSerializationActions(list, out list1);
+        }
+        public static void BinarySerializationActions<T>(T obj, out T obj1)
+        {
+            BinarySerialization<T> serialization = new BinarySerialization<T>();
+
+            serialization.Serialize(obj);
+
+            obj1 = serialization.Deserialize();
+        }
+
+        public static void SoapSerializationActions<T>(T obj, out T obj1)
+        {
+            SoapSerialization<T> serialization = new SoapSerialization<T>();
+
+            serialization.Serialize(obj);
+
+            obj1 = serialization.Deserialize();
         }
 
         static void MyExceptionThrowing()
