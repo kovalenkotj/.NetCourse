@@ -9,7 +9,19 @@ namespace _2ndWeek
     {
         static void Main(string[] args)
         {
-            
+            MyExceptionThrowing();
+        }
+
+        static void MyExceptionThrowing()
+        {
+            try
+            {
+                throw new MyException();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
         }
 
         static void From2ndWeek()
