@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Text;
+using System.Xml.Serialization;
 
 namespace _2ndWeek
 {
@@ -20,23 +21,30 @@ namespace _2ndWeek
 
     // Task 6
     [Serializable]
-    class LinkedListNode<T>
+    public class LinkedListNode<T>
     {
+        [XmlElement]
         public LinkedListNode<T> Prev { get; set; }
+        [XmlElement]
         public LinkedListNode<T> Next { get; set; }
+        //[XmlAttribute]
+        [XmlElement]
         public T Value { get; set; }
+        public LinkedListNode() { }
         public LinkedListNode(T value)
         {
             Value = value;
         }
     }
     [Serializable]
-    class LinkedListClass<T>: IEnumerable<LinkedListNode<T>>
+    public class LinkedListClass<T>: IEnumerable<LinkedListNode<T>>
     {
-        public delegate void ListActionsHandler(object sender, ListActionsEventArgs<T> e);
+        delegate void ListActionsHandler(object sender, ListActionsEventArgs<T> e);
         [field: NonSerialized]
-        public event ListActionsHandler ActionMessage;
+        event ListActionsHandler ActionMessage;
+        [XmlElement]
         public LinkedListNode<T> First { get; set; }
+        [XmlElement]
         public LinkedListNode<T> Last { get; set; }
         /* Task 6, Week 3:
          "Modify your class so that the some member will not be serialized, 
@@ -60,6 +68,7 @@ namespace _2ndWeek
             ActionMessage += DisplayMessage;
         }
 
+        public void Add(object v) { }
         public void Add(T value)
         {
             LinkedListNode<T> node = new LinkedListNode<T>(value);
@@ -112,7 +121,7 @@ namespace _2ndWeek
             }
         }
 
-        public void DisplayMessage(object sender, ListActionsEventArgs<T> e)
+        void DisplayMessage(object sender, ListActionsEventArgs<T> e)
         {
             Console.WriteLine(e.Message);
         }

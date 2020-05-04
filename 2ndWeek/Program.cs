@@ -10,7 +10,21 @@ namespace _2ndWeek
         static void Main(string[] args)
         {
             //MyExceptionThrowing();
-            BinarySoapSerializationDemonstration();
+            //BinarySoapSerializationDemonstration();
+
+            /*Exceptions ->*/ //XmlSerializationDemonstration();
+
+
+        }
+
+        public static void XmlSerializationDemonstration()
+        {
+            LinkedListClass<string> list = new LinkedListClass<string>();
+            list.Add("str1");
+            list.Add("str2");
+            XmlSerialization<LinkedListClass<string>> serialization = new XmlSerialization<LinkedListClass<string>>();
+            serialization.Serialize(list);
+            LinkedListClass<string> list1 = serialization.Deserialize();
         }
 
         /* Task 5, Week 3:
