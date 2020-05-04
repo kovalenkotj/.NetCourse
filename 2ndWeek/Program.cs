@@ -9,6 +9,11 @@ namespace _2ndWeek
     {
         static void Main(string[] args)
         {
+            
+        }
+
+        static void From2ndWeek()
+        {
             // Task 4
             Console.WriteLine("\tTask 4");
             long r1, r2;
@@ -61,7 +66,7 @@ namespace _2ndWeek
             //object obj2 = appDomain.CreateInstance("2ndWeek", "_2ndWeek.ClassWithPrivateConstructor");
 
             // It already works))
-            ConstructorInfo[] constructors = type.GetConstructors(BindingFlags.NonPublic|BindingFlags.Instance);
+            ConstructorInfo[] constructors = type.GetConstructors(BindingFlags.NonPublic | BindingFlags.Instance);
             foreach (ConstructorInfo ci in constructors)
             {
                 ci.Invoke(null);
@@ -70,8 +75,8 @@ namespace _2ndWeek
             // Task 9
             Console.WriteLine("\n\tTask 9");
             Type type1 = Type.GetType("_2ndWeek.StaticClass");
-            MethodInfo[] methods = type1.GetMethods(BindingFlags.NonPublic|BindingFlags.Static);
-            foreach(MethodInfo m in methods)
+            MethodInfo[] methods = type1.GetMethods(BindingFlags.NonPublic | BindingFlags.Static);
+            foreach (MethodInfo m in methods)
             {
                 if (m.IsGenericMethod)
                 {
