@@ -38,6 +38,10 @@ namespace _2ndWeek
         public event ListActionsHandler ActionMessage;
         public LinkedListNode<T> First { get; set; }
         public LinkedListNode<T> Last { get; set; }
+        /* Task 6, Week 3:
+         "Modify your class so that the some member will not be serialized, 
+         but will be automatically defined upon deserialization"*/
+        [field: NonSerialized]
         public int Count 
         {
             get
