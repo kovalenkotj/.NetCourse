@@ -10,11 +10,19 @@ namespace _2ndWeek
         static void Main(string[] args)
         {
             //MyExceptionThrowing();
-            BinarySoapSerializationDemonstration();
-
+            //BinarySoapSerializationDemonstration();
+            BinaryFormatterEventsCall();
             /*Exceptions ->*/ //XmlSerializationDemonstration();
 
 
+        }
+
+        public static void BinaryFormatterEventsCall()
+        {
+            ClassForBinaryFormatterEvents c = new ClassForBinaryFormatterEvents();
+            BinarySerialization<ClassForBinaryFormatterEvents> serialization = new BinarySerialization<ClassForBinaryFormatterEvents>();
+            serialization.Serialize(c);
+            serialization.Deserialize();
         }
 
         public static void XmlSerializationDemonstration()
