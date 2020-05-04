@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using System.Xml.Serialization;
+using System.Runtime.Serialization;
 
 namespace _2ndWeek
 {
@@ -21,30 +22,44 @@ namespace _2ndWeek
 
     // Task 6
     [Serializable]
-    public class LinkedListNode<T>
+    public class LinkedListNode<T>:ISerializable
     {
-        [XmlElement]
+        //[XmlElement]
         public LinkedListNode<T> Prev { get; set; }
-        [XmlElement]
+        //[XmlElement]
         public LinkedListNode<T> Next { get; set; }
         //[XmlAttribute]
-        [XmlElement]
+        //[XmlElement]
         public T Value { get; set; }
         public LinkedListNode() { }
         public LinkedListNode(T value)
         {
             Value = value;
         }
+
+        public LinkedListNode(SerializationInfo info, StreamingContext context)
+        {
+            Prev = (LinkedListNode<T>)info.GetValue("Prev", typeof(LinkedListNode<T>));
+            Next = (LinkedListNode<T>)info.GetValue("Next", typeof(LinkedListNode<T>));
+            Value = (T)info.GetValue("Value", typeof(T));
+        }
+
+        public void GetObjectData(SerializationInfo info, StreamingContext context)
+        {
+            info.AddValue("Prev", Prev);
+            info.AddValue("Next", Next);
+            info.AddValue("Value", Value);
+        }
     }
     [Serializable]
-    public class LinkedListClass<T>: IEnumerable<LinkedListNode<T>>
+    public class LinkedListClass<T>: IEnumerable<LinkedListNode<T>>, ISerializable
     {
         delegate void ListActionsHandler(object sender, ListActionsEventArgs<T> e);
         [field: NonSerialized]
         event ListActionsHandler ActionMessage;
-        [XmlElement]
+        //[XmlElement]
         public LinkedListNode<T> First { get; set; }
-        [XmlElement]
+        //[XmlElement]
         public LinkedListNode<T> Last { get; set; }
         /* Task 6, Week 3:
          "Modify your class so that the some member will not be serialized, 
@@ -139,6 +154,18 @@ namespace _2ndWeek
         IEnumerator IEnumerable.GetEnumerator()
         {
             return this.GetEnumerator();
+        }
+
+        public LinkedListClass(SerializationInfo info, StreamingContext context)
+        {
+            First = (LinkedListNode<T>)info.GetValue("First",typeof(LinkedListNode<T>));
+            Last = (LinkedListNode<T>)info.GetValue("Last", typeof(LinkedListNode<T>));
+        }
+
+        public void GetObjectData(SerializationInfo info, StreamingContext context)
+        {
+            info.AddValue("First", First);
+            info.AddValue("Last", Last);
         }
     }
 }
