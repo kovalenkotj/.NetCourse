@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Reflection;
 using System.Runtime.Remoting;
 
@@ -15,9 +16,13 @@ namespace _2ndWeek
             /*Exceptions ->*/ //XmlSerializationDemonstration();
 
             // Task 12, Week 3
-            Console.WriteLine(DriveSearch.Search("."));
-            Console.WriteLine(DriveSearch.Search("Untitled.png"));
+            Console.WriteLine(SearchInDirectories.DriveSearch("."));
+            Console.WriteLine(SearchInDirectories.DriveSearch("Untitled.png"));
 
+            // Task 16-17, Week 3
+            Console.Write(SearchInDirectories.DirectoriesSearch(@"C:\Users\tetiana.kovalenko\source\repos\DotNetCourse"));
+            Console.WriteLine();
+            Console.Write(SearchInDirectories.FilesAndDirectoriesSearch(@"C:\Users\tetiana.kovalenko\source\repos\DotNetCourse"));
         }
 
         public static void BinaryFormatterEventsCall()
