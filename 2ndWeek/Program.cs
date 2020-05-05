@@ -11,9 +11,12 @@ namespace _2ndWeek
         {
             //MyExceptionThrowing();
             //BinarySoapSerializationDemonstration();
-            BinaryFormatterEventsCall();
+            //BinaryFormatterEventsCall();
             /*Exceptions ->*/ //XmlSerializationDemonstration();
 
+            // Task 12, Week 3
+            Console.WriteLine(DriveSearch.Search("."));
+            Console.WriteLine(DriveSearch.Search("Untitled.png"));
 
         }
 

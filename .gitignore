@@ -339,3 +339,4 @@ ASALocalRun/
 # BeatPulse healthcheck temp database
 healthchecksdb
 /2ndWeek/CodeFormatter.cs
+/2ndWeek/MyFormatter.cs
