@@ -51,5 +51,19 @@ namespace _2ndWeek
             return dfs;
         }
 
+
+        /* Task 15, Week 3:
+         "Create an application which will enumerate drives on PC."*/
+        public static string GetAllDrives()
+        {
+            string[] drives = Directory.GetLogicalDrives();
+            string drivesString = "";
+            foreach (string s in drives)
+            {
+                drivesString += s + "\n";
+            }
+            return drivesString;
+        }
+
     }
 }

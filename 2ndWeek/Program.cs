@@ -15,14 +15,17 @@ namespace _2ndWeek
             //BinaryFormatterEventsCall();
             /*Exceptions ->*/ //XmlSerializationDemonstration();
 
-            // Task 12, Week 3
-            Console.WriteLine(SearchInDirectories.DriveSearch("."));
-            Console.WriteLine(SearchInDirectories.DriveSearch("Untitled.png"));
+            //// Task 12, Week 3
+            //Console.WriteLine(SearchInDirectories.DriveSearch("."));
+            //Console.WriteLine(SearchInDirectories.DriveSearch("Untitled.png"));
 
-            // Task 16-17, Week 3
-            Console.Write(SearchInDirectories.DirectoriesSearch(@"C:\Users\tetiana.kovalenko\source\repos\DotNetCourse"));
-            Console.WriteLine();
-            Console.Write(SearchInDirectories.FilesAndDirectoriesSearch(@"C:\Users\tetiana.kovalenko\source\repos\DotNetCourse"));
+            //// Task 16-17, Week 3
+            //Console.Write(SearchInDirectories.DirectoriesSearch(@"C:\Users\tetiana.kovalenko\source\repos\DotNetCourse"));
+            //Console.WriteLine();
+            //Console.Write(SearchInDirectories.FilesAndDirectoriesSearch(@"C:\Users\tetiana.kovalenko\source\repos\DotNetCourse"));
+
+            // Task 15, Week 3
+            Console.Write(SearchInDirectories.GetAllDrives());
         }
 
         public static void BinaryFormatterEventsCall()
