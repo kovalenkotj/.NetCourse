@@ -24,8 +24,11 @@ namespace _2ndWeek
             //Console.WriteLine();
             //Console.Write(SearchInDirectories.FilesAndDirectoriesSearch(@"C:\Users\tetiana.kovalenko\source\repos\DotNetCourse"));
 
-            // Task 15, Week 3
-            Console.Write(SearchInDirectories.GetAllDrives());
+            //// Task 15, Week 3
+            //Console.Write(SearchInDirectories.GetAllDrives());
+
+            // It doesn't work
+            SearchInDirectories.OpenFile(@"C:\Users\tetiana.kovalenko\source\repos\DotNetCourse\3\A.cs");
         }
 
         public static void BinaryFormatterEventsCall()

@@ -65,5 +65,14 @@ namespace _2ndWeek
             return drivesString;
         }
 
+        /* Task 13, Week 3:
+         "Add code to view the file by using the FileStream class to show the file in window"*/
+        public static void OpenFile(string path)
+        {
+            FileInfo fileInfo = new FileInfo(path);
+            FileStream stream = fileInfo.Open(FileMode.Open, FileAccess.Read);
+            stream.Close();
+        }
+
     }
 }
