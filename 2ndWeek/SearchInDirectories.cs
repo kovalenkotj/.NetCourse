@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using System.IO.Compression;
 
 namespace _2ndWeek
 {
@@ -83,5 +84,22 @@ namespace _2ndWeek
             return result;
         }
 
+        /* Task 14, Week 3:
+         "Finally, add a feature to compress a file when it is found"*/
+        public static void FileComporession(params string[] paths)
+        {
+            FileStream destination = File.Create(@"C:\Users\tetiana.kovalenko\source\repos\DotNetCourse\result.gz");
+
+            using (GZipStream gZipStream = new GZipStream(destination, CompressionMode.Compress))
+            {
+                foreach (string source in paths)
+                {
+                    using (FileStream tempStream = File.OpenRead(source))
+                    {
+                        tempStream.CopyTo(gZipStream);
+                    }
+                }
+            }
+        }
     }
 }

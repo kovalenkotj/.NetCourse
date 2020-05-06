@@ -27,9 +27,15 @@ namespace _2ndWeek
             //// Task 15, Week 3
             //Console.Write(SearchInDirectories.GetAllDrives());
 
-            /* Task 13, Week 3:
-            "Add code to view the file by using the FileStream class to show the file in window"*/
-            Console.Write(SearchInDirectories.OpenAndReadFile(@"C:\Users\tetiana.kovalenko\source\repos\DotNetCourse\3\A.cs"));
+            ///* Task 13, Week 3:
+            //"Add code to view the file by using the FileStream class to show the file in window"*/
+            //Console.Write(SearchInDirectories.OpenAndReadFile(@"C:\Users\tetiana.kovalenko\source\repos\DotNetCourse\3\A.cs"));
+
+            /* Task 14, Week 3:
+            "Finally, add a feature to compress a file when it is found"*/
+            // tried to compress both one and several files, and decided to leave the second variant here
+            SearchInDirectories.FileComporession(@"C:\Users\tetiana.kovalenko\source\repos\DotNetCourse\file.txt",
+                @"C:\Users\tetiana.kovalenko\source\repos\DotNetCourse\file1.txt");
         }
 
         public static void BinaryFormatterEventsCall()
