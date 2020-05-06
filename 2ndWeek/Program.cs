@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using System.Runtime.Remoting;
+using System.Threading;
 
 namespace _2ndWeek
 {
@@ -31,11 +32,25 @@ namespace _2ndWeek
             //"Add code to view the file by using the FileStream class to show the file in window"*/
             //Console.Write(SearchInDirectories.OpenAndReadFile(@"C:\Users\tetiana.kovalenko\source\repos\DotNetCourse\3\A.cs"));
 
-            /* Task 14, Week 3:
-            "Finally, add a feature to compress a file when it is found"*/
-            // tried to compress both one and several files, and decided to leave the second variant here
-            SearchInDirectories.FileComporession(@"C:\Users\tetiana.kovalenko\source\repos\DotNetCourse\file.txt",
-                @"C:\Users\tetiana.kovalenko\source\repos\DotNetCourse\file1.txt");
+            ///* Task 14, Week 3:
+            //"Finally, add a feature to compress a file when it is found"*/
+            //// tried to compress both one and several files, and decided to leave the second variant here
+            //SearchInDirectories.FileComporession(@"C:\Users\tetiana.kovalenko\source\repos\DotNetCourse\file.txt",
+            //    @"C:\Users\tetiana.kovalenko\source\repos\DotNetCourse\file1.txt");
+
+            // Task 3, Week 3
+            ThreadPoolUse();
+        }
+
+        /* Task 3, Week 3:
+         "Create a test application that writes data out to the console, including the thread that the code is using.
+         -Use the ThreadPool to queue up 20 instances of the data-writing code.
+         -Note how many threads are used and how often they are reused from the pool 
+         (by observing the ManagedThreadId being used on different instances of the code)"*/
+        public static void ThreadPoolUse()
+        {
+            Threads.ThreadPoolUse();
+            Console.ReadKey();
         }
 
         public static void BinaryFormatterEventsCall()
