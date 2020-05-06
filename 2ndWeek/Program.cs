@@ -27,8 +27,9 @@ namespace _2ndWeek
             //// Task 15, Week 3
             //Console.Write(SearchInDirectories.GetAllDrives());
 
-            // It doesn't work
-            SearchInDirectories.OpenFile(@"C:\Users\tetiana.kovalenko\source\repos\DotNetCourse\3\A.cs");
+            /* Task 13, Week 3:
+            "Add code to view the file by using the FileStream class to show the file in window"*/
+            Console.Write(SearchInDirectories.OpenAndReadFile(@"C:\Users\tetiana.kovalenko\source\repos\DotNetCourse\3\A.cs"));
         }
 
         public static void BinaryFormatterEventsCall()
