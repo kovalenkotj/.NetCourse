@@ -47,9 +47,15 @@ namespace _2ndWeek
          -Use the ThreadPool to queue up 20 instances of the data-writing code.
          -Note how many threads are used and how often they are reused from the pool 
          (by observing the ManagedThreadId being used on different instances of the code)"*/
+        /* Task 4, Week 3
+        "Show the size of the ThreadPool by calling the ThreadPool.GetMinThreads and ThreadPool.GetMaxThreads methods. 
+        Change the number of the ThreadPools threads by increasing and decreasing the threads using the ThreadPool.SetMinThreads 
+        and ThreadPool.SetMaxThreads methods. 
+        Run the application with different settings to see how the thread pool operates differently"*/
         public static void ThreadPoolUse()
         {
-            Threads.ThreadPoolUse();
+            Threads.ManageThreadPoolSize(); // Task 4
+            //Threads.ThreadPoolUse(); // Task 3
             Console.ReadKey();
         }
 
