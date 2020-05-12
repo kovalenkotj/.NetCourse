@@ -19,7 +19,8 @@ namespace _2ndWeek
 
         static void Main(string[] args)
         {
-
+            Threads.ManageThreadPoolSize();
+            Console.ReadKey();
         }
 
         

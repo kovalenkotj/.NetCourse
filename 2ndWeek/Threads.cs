@@ -8,6 +8,9 @@ namespace _2ndWeek
 {
     class Threads
     {
+        static Mutex m = new Mutex();
+
+        
         /* Task 3, Week 3:
          "Create a test application that writes data out to the console, including the thread that the code is using.
          -Use the ThreadPool to queue up 20 instances of the data-writing code.
@@ -15,11 +18,12 @@ namespace _2ndWeek
          (by observing the ManagedThreadId being used on different instances of the code)"*/
         public static void ThreadPoolUse()
         {
-            for(int i = 0; i < 20; i++)
+            //m.WaitOne();
+            for (int i = 0; i < 20; i++)
             {
                 ThreadPool.QueueUserWorkItem(Output, i);
             }
-
+            //m.ReleaseMutex();
         }
 
         public static void Output(Object state)
@@ -36,29 +40,39 @@ namespace _2ndWeek
         {
             int maxWorkerThreads, maxPortThreads, minWorkerThreads, minPortThreads;
             ThreadPool.GetMinThreads(out minWorkerThreads, out minPortThreads);
-            ThreadPool.GetMaxThreads(out maxWorkerThreads, out maxPortThreads);
+            ThreadPool.GetMaxThreads(out maxWorkerThreads, out maxPortThreads); 
+            m.WaitOne();
             Console.WriteLine($"Minimum number of: worker threads - {minWorkerThreads}, completion port threads - {minPortThreads} ");
             Console.WriteLine($"Maximum number of: worker threads - {maxWorkerThreads}, completion port threads - {maxPortThreads} ");
+            m.ReleaseMutex();
+            m.WaitOne();
             ThreadPoolUse();
-
-            Thread.Sleep(2000);
-
+            m.ReleaseMutex();
+            //Thread.Sleep(2000);
+            
             ThreadPool.SetMinThreads(321, 321);
             ThreadPool.GetMinThreads(out minWorkerThreads, out minPortThreads);
             ThreadPool.GetMaxThreads(out maxWorkerThreads, out maxPortThreads);
+            m.WaitOne();
             Console.WriteLine($"Minimum number of: worker threads - {minWorkerThreads}, completion port threads - {minPortThreads} ");
             Console.WriteLine($"Maximum number of: worker threads - {maxWorkerThreads}, completion port threads - {maxPortThreads} ");
+            m.ReleaseMutex();
+            m.WaitOne();
             ThreadPoolUse();
-
-            Thread.Sleep(2000);
-
+            m.ReleaseMutex();
+            //Thread.Sleep(2000);
+            
             ThreadPool.SetMinThreads(3, 3);
-            ThreadPool.SetMaxThreads(4,4);
+            ThreadPool.SetMaxThreads(4, 4);
             ThreadPool.GetMinThreads(out minWorkerThreads, out minPortThreads);
             ThreadPool.GetMaxThreads(out maxWorkerThreads, out maxPortThreads);
+            m.WaitOne();
             Console.WriteLine($"Minimum number of: worker threads - {minWorkerThreads}, completion port threads - {minPortThreads} ");
             Console.WriteLine($"Maximum number of: worker threads - {maxWorkerThreads}, completion port threads - {maxPortThreads} ");
+            m.ReleaseMutex();
+            m.WaitOne();
             ThreadPoolUse();
+            m.ReleaseMutex();
         }
     }
 }
