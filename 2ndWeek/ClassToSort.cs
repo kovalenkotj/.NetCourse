@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Text;
 using System.Runtime.Serialization;
+using System.Xml.Serialization;
 
 namespace _2ndWeek
 {
@@ -11,11 +12,18 @@ namespace _2ndWeek
      Unless performance is a higher priority than reliability, 
      all code outside of value type declarations should be in a Try block"*/
 
-        [Serializable]
-    class ClassToSort : IComparable<ClassToSort>, IComparer<ClassToSort>, ISerializable
-    {
-        int someValue;
+    /* Task 7, Week 3:
+     "Write an application that uses XML serialization to serialize and deserialize the last class you created as part of your job"*/
 
+     // Task 8 is below
+
+    [Serializable]
+    public class ClassToSort : IComparable<ClassToSort>, IComparer<ClassToSort>, ISerializable
+    {
+        [XmlAttribute]
+        public int someValue;
+
+        public ClassToSort() { }
         public ClassToSort(int value)
         {
             someValue = value;
@@ -59,7 +67,10 @@ namespace _2ndWeek
             }
             return 0;
         }
-        /* Task 8, Week 3 */
+
+        /* Task 8, Week 3:
+         "Using the last custom class you created as part of your job, modify it so that it implements ISerialization 
+         and can be successfully serialized and deserialized."*/
         public ClassToSort(SerializationInfo info, StreamingContext context)
         {
             someValue = (int)info.GetValue("someValue", typeof(int));
