@@ -6,6 +6,8 @@ using System.Runtime.InteropServices;
 using System.Runtime.Remoting;
 using System.Security.Cryptography.X509Certificates;
 using System.Threading;
+using _2ndWeek.PluginManagement;
+using _2ndWeek.PluginManagement.Plugins;
 
 namespace _2ndWeek
 {
@@ -22,7 +24,9 @@ namespace _2ndWeek
 
         }
 
-        
+
+
+
 
 
         /* Task 2, Week 3:
@@ -240,8 +244,20 @@ namespace _2ndWeek
         }
         #endregion
 
-        //
-
+        /* Task 21, Week 3:
+         "Create plug-in manager application which scans directory for plug-ins and loads them. 
+         Use shared interface to implement plug-in's and determine if assembly is a needed plug-in, 
+         Define some action in plug-in. Plug-in manager should load all available plug-ins and perform actions defined in each plug-in."*/
+        #region Task 21, Week 3
+        private static void UsePlugins()
+        {
+            PluginManager manager = new PluginManager();
+            foreach (var plugin in manager.pluginsList)
+            {
+                Console.WriteLine(plugin.Activate("THis IS some StrING"));
+            }
+        }
+        #endregion
 
 
 
